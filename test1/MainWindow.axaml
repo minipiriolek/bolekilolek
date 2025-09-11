@@ -1,0 +1,94 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="test1.MainWindow"
+        Title="Zadania Bolka i Lolka"
+        Width="700"
+        Height="900"
+        Background="#FFF0F0F0">
+
+    <StackPanel Margin="20" Spacing="15">
+        <TextBlock Text="Zadania Bolka i Lolka"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#3B3B3B"
+                   HorizontalAlignment="Center" />
+
+        <StackPanel>
+            <TextBlock Text="Nazwa zadania:"
+                       FontWeight="Bold"
+                       Foreground="#2E2E2E"/>
+            <TextBox Name="TaskNameBox"
+                     Watermark="np. wyprowadzic psa"
+                     Background="#FFFFFFFF"
+                     BorderBrush="#CCCCCC"
+                     Foreground="#333" />
+        </StackPanel>
+
+        <Button Content="Dodaj"
+                Background="#4CAF50"
+                Foreground="White"
+                Padding="10,5"
+                HorizontalAlignment="Left"
+                Width="100"
+                Click="OnAddTaskClick"/>
+
+        <StackPanel>
+            <TextBlock Text="Wybierz bohatera:"
+                       FontWeight="Bold"
+                       Foreground="#2E2E2E"/>
+            <ComboBox Name="CharacterComboBox" Width="150">
+                <ComboBoxItem Content="Bolek" />
+                <ComboBoxItem Content="Lolek" />
+            </ComboBox>
+        </StackPanel>
+
+        <Border Name="CharacterImageBorder" Width="100" Height="100" Margin="0,10">
+            <Image Name="CharacterImage" Stretch="Uniform" />
+        </Border>
+
+        <StackPanel>
+            <TextBlock Text="Ustaw priorytet zadania:"
+                       FontWeight="Bold"
+                       Foreground="#2E2E2E"/>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <RadioButton Content="Niski" GroupName="Priorytet" Name="LowPriority"/>
+                <RadioButton Content="Normalny" GroupName="Priorytet" Name="NormalPriority"/>
+                <RadioButton Content="Wysoki" GroupName="Priorytet" Name="HighPriority"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel>
+            <TextBlock Text="Opcje dodatkowe:"
+                       FontWeight="Bold"
+                       Foreground="#2E2E2E"/>
+            <StackPanel>
+                <CheckBox Name="OutdoorCheckBox" Content="Na dworze"/>
+                <CheckBox Name="EquipmentCheckBox" Content="Potrzebny sprzęt"/>
+                <CheckBox Name="FriendsCheckBox" Content="Z udziałem kolegi"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ListBox Name="TaskListBox" SelectionMode="Single" Height="200" />
+
+        <Button Content="Usuń"
+                Background="#FF5722"
+                Foreground="White"
+                Padding="10,5"
+                HorizontalAlignment="Left"
+                Width="100"
+                Click="OnRemoveTaskClick"/>
+
+        <Calendar Name="TaskCalendar" Margin="0,20" />
+
+        <Button Content="Pokaż zadania"
+                Background="#2196F3"
+                Foreground="White"
+                Padding="10,5"
+                HorizontalAlignment="Left"
+                Width="100"
+                Click="OnShowTasksForDateClick"/>
+    </StackPanel>
+</Window>
