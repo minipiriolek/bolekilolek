@@ -1,14 +1,12 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="test1.MainWindow"
         Title="Zadania Bolka i Lolka"
         Width="700"
-        Height="900"
-        Background="#FFF0F0F0">
-
+        Height="1300"
+        Background="#FFF0F0F0"
+            >
+    <ScrollViewer>
     <StackPanel Margin="20" Spacing="15">
         <TextBlock Text="Zadania Bolka i Lolka"
                    FontSize="28"
@@ -17,78 +15,48 @@
                    HorizontalAlignment="Center" />
 
         <StackPanel>
-            <TextBlock Text="Nazwa zadania:"
-                       FontWeight="Bold"
-                       Foreground="#2E2E2E"/>
-            <TextBox Name="TaskNameBox"
-                     Watermark="np. wyprowadzic psa"
-                     Background="#FFFFFFFF"
-                     BorderBrush="#CCCCCC"
-                     Foreground="#333" />
+            <TextBlock Text="Nazwa zadania:" FontWeight="Bold" />
+            <TextBox Name="TaskNameBox" Watermark="np. zbudować latawiec"/>
         </StackPanel>
 
-        <Button Content="Dodaj"
-                Background="#4CAF50"
-                Foreground="White"
-                Padding="10,5"
-                HorizontalAlignment="Left"
-                Width="100"
-                Click="OnAddTaskClick"/>
-
         <StackPanel>
-            <TextBlock Text="Wybierz bohatera:"
-                       FontWeight="Bold"
-                       Foreground="#2E2E2E"/>
-            <ComboBox Name="CharacterComboBox" Width="150">
-                <ComboBoxItem Content="Bolek" />
-                <ComboBoxItem Content="Lolek" />
+            <TextBlock Text="Wybierz bohatera:" FontWeight="Bold"/>
+            <ComboBox Name="CharacterComboBox" Width="150" SelectionChanged="OnCharacterChanged">
+                <ComboBoxItem Content="Bolek"/>
+                <ComboBoxItem Content="Lolek"/>
             </ComboBox>
         </StackPanel>
 
-        <Border Name="CharacterImageBorder" Width="100" Height="100" Margin="0,10">
-            <Image Name="CharacterImage" Stretch="Uniform" />
+        <Border BorderBrush="Gray" BorderThickness="1" Width="120" Height="120" HorizontalAlignment="Left">
+            <Image Name="CharacterImage" Stretch="Uniform"/>
         </Border>
 
         <StackPanel>
-            <TextBlock Text="Ustaw priorytet zadania:"
-                       FontWeight="Bold"
-                       Foreground="#2E2E2E"/>
+            <TextBlock Text="Ustaw priorytet:" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal" Spacing="10">
-                <RadioButton Content="Niski" GroupName="Priorytet" Name="LowPriority"/>
-                <RadioButton Content="Normalny" GroupName="Priorytet" Name="NormalPriority"/>
-                <RadioButton Content="Wysoki" GroupName="Priorytet" Name="HighPriority"/>
+                <RadioButton Content="Łatwe" GroupName="Priorytet" Name="LowPriority"/>
+                <RadioButton Content="Średnie" GroupName="Priorytet" Name="NormalPriority"/>
+                <RadioButton Content="Trudne" GroupName="Priorytet" Name="HighPriority"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel>
-            <TextBlock Text="Opcje dodatkowe:"
-                       FontWeight="Bold"
-                       Foreground="#2E2E2E"/>
-            <StackPanel>
-                <CheckBox Name="OutdoorCheckBox" Content="Na dworze"/>
-                <CheckBox Name="EquipmentCheckBox" Content="Potrzebny sprzęt"/>
-                <CheckBox Name="FriendsCheckBox" Content="Z udziałem kolegi"/>
-            </StackPanel>
+            <TextBlock Text="Opcje dodatkowe:" FontWeight="Bold"/>
+            <CheckBox Name="OutdoorCheckBox" Content="Na dworze"/>
+            <CheckBox Name="EquipmentCheckBox" Content="Potrzebny sprzęt"/>
+            <CheckBox Name="FriendsCheckBox" Content="Z udziałem innych kolegów"/>
         </StackPanel>
 
-        <ListBox Name="TaskListBox" SelectionMode="Single" Height="200" />
+        <ListBox Name="TaskListBox" Height="200" />
 
-        <Button Content="Usuń"
-                Background="#FF5722"
-                Foreground="White"
-                Padding="10,5"
-                HorizontalAlignment="Left"
-                Width="100"
-                Click="OnRemoveTaskClick"/>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Dodaj" Width="100" Click="OnAddTaskClick"/>
+            <Button Content="Usuń" Width="100" Click="OnRemoveTaskClick"/>
+        </StackPanel>
 
-        <Calendar Name="TaskCalendar" Margin="0,20" />
+        <Calendar Name="TaskCalendar" />
 
-        <Button Content="Pokaż zadania"
-                Background="#2196F3"
-                Foreground="White"
-                Padding="10,5"
-                HorizontalAlignment="Left"
-                Width="100"
-                Click="OnShowTasksForDateClick"/>
+        <Button Content="Podsumowanie dnia" Width="150" Click="OnShowTasksForDateClick"/>
     </StackPanel>
+    </ScrollViewer>
 </Window>

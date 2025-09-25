@@ -71,3 +71,4 @@
 /home/olo/RiderProjects/test1/test1/obj/Debug/net9.0/test1.pdb
 /home/olo/RiderProjects/test1/test1/obj/Debug/net9.0/test1.genruntimeconfig.cache
 /home/olo/RiderProjects/test1/test1/obj/Debug/net9.0/ref/test1.dll
+/home/olo/RiderProjects/test1/test1/obj/Debug/net9.0/test1.sourcelink.json
